@@ -1,14 +1,15 @@
 Package: fazhthemes
-Title: What the Package Does (One Line, Title Case)
+Title: My personal {ggplot2} themes
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Fernando Antonio",
            family = "Zepeda Herrera",
            role = c("aut", "cre"),
            email = "fazepher@gmail.com")
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+Description: This package contains my personal {ggplot2} themes. 
+    Their main difference with the core themes is the use of the Century Gothic family, 
+    as well as larger font sizes. 
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
