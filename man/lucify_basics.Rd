@@ -22,20 +22,3 @@ These functions "lucify" a core ggplot2 theme.
 The basics of lucified themes are Century Gothic fonts, bigger sizes of text elements and margins,
 as well as slightly different colors and centered title and subtitles.
 }
-\examples{
-\dontrun{
-library(tidyverse)
-UKDriverDeaths_tibble <- UKDriverDeaths \%>\%
-  matrix(nrow=16, ncol=12, byrow = TRUE,
-         dimnames = list(1969:1984,month.abb)) \%>\%
-  as.data.frame() \%>\%
-  rownames_to_column("Month")
-
-ggplot(data = ULDriverDeaths_tibble, aes(x=Month,y=Jan)) +
-  geom_col(fill = "steelblue4", width = 0.1) +
-  geom_point(color = "steelblue4", size = ggplot2::rel(10)) +
-  theme_minimal() +
-  lucify_basics()
-}
-
-}
