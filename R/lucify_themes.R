@@ -1,11 +1,39 @@
 
-lucify_basics <- function(){
+#' Lucified ggplot2 themes
+#'
+#' These functions "lucify" a core ggplot2 theme.
+#' The basics of lucified themes are Century Gothic fonts, bigger sizes of text elements and margins,
+#' as well as slightly different colors and centered title and subtitles.
+#'
+#' @param text_family (Default = "Century Gothic") Text font family to use.
+#' @param text_size (Default = 17) Text size to use.
+#' @param text_color (Default = "#3C3C3C") Text color to use.
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' library(tidyverse)
+#' UKDriverDeaths_tibble <- UKDriverDeaths %>%
+#'   matrix(nrow=16, ncol=12, byrow = TRUE,
+#'          dimnames = list(1969:1984,month.abb)) %>%
+#'   as.data.frame() %>%
+#'   rownames_to_column("Month")
+#'
+#' ggplot(data = ULDriverDeaths_tibble, aes(x=Month,y=Jan)) +
+#'   geom_col(fill = "steelblue4", width = 0.1) +
+#'   geom_point(color = "steelblue4", size = rel(10)) +
+#'   theme_minimal() +
+#'   lucify_basics()
+#'}
+#'
+lucify_basics <- function(text_family = "Century Gothic", text_size = 17, text_color = "#3C3C3C"){
 
   theme(line = element_line(colour = "#666666"),
         rect = element_rect(colour = "#C6C6C6"),
-        text = element_text(family = "Century Gothic",
-                            colour = "#3C3C3C",
-                            size = 17),
+        text = element_text(family = font_family,
+                            colour = text_color,
+                            size = text_size),
         axis.title.x = element_text(size = rel(1.2),
                                     margin = margin(t = 15)),
         axis.title.x.top = element_text(size = rel(1.2),
