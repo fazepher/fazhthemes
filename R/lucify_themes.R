@@ -68,6 +68,7 @@ lucify_basics <- function(text_family = "Century Gothic", text_size = 15, text_c
                                   margin = margin(b = 20)),
         plot.subtitle = element_text(hjust = 0.5,
                                      margin = margin(t = -12.5, b = 20)),
+        plot.caption = element_text(size = rel(0.5), margin = margin(t = 10), hjust = 0),
         plot.margin = margin(t = 10, r = 10, b = 10, l = 10),
         strip.text = element_text(size = rel(1.1),
                                   margin = margin(t = 8, r = 8, b = 8, l = 8)))
