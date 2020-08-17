@@ -6,7 +6,7 @@
 \usage{
 lucify_basics(
   text_family = "Century Gothic",
-  text_size = 17,
+  text_size = 15,
   text_color = "#3C3C3C"
 )
 }
@@ -18,7 +18,8 @@ lucify_basics(
 \item{text_color}{(Default = "#3C3C3C") Text color to use.}
 }
 \description{
-These functions "lucify" a core ggplot2 theme.
+These functions "lucify" (inside joke for modifying) a core {ggplot2} theme,
+as described in (\code{\link[ggplot2]{ggtheme}}).
 The basics of lucified themes are Century Gothic fonts, bigger sizes of text elements and margins,
 as well as slightly different colors and centered title and subtitles.
 }
