@@ -13,30 +13,6 @@
 #' @param text_size (Default = 17) Text size to use.
 #' @param text_color (Default = "#3C3C3C") Text color to use.
 #'
-#' @examples
-#'
-#' \dontrun{
-#'
-#' UKDriverDeaths_tibble <- UKDriverDeaths %>%
-#'    matrix(nrow=16, ncol=12, byrow = TRUE,
-#'           dimnames = list(1969:1984,month.abb)) %>%
-#'    as.data.frame() %>%
-#'    rownames_to_column("Year")
-#'
-#' ggplot(data = UKDriverDeaths_tibble, aes(x=Year,y=Jan)) +
-#'   geom_col(fill = "steelblue4", width = 0.1) +
-#'   geom_point(color = "steelblue4", size = rel(10)) +
-#'   theme_minimal()
-#'
-#' ggplot(data = UKDriverDeaths_tibble, aes(x=Year,y=Jan)) +
-#'   geom_col(fill = "steelblue4", width = 0.1) +
-#'   geom_point(color = "steelblue4", size = rel(10)) +
-#'   lucify_theme_minimal()
-#'
-#'}
-#'
-#' @export
-#'
 #'
 lucify_basics <- function(text_family = "Century Gothic", text_size = 15, text_color = "#3C3C3C"){
 
