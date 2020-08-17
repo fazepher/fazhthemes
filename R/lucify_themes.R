@@ -12,7 +12,7 @@
 #' @export
 #'
 #'
-lucify_basics <- function(text_family = "Century Gothic", text_size = 17, text_color = "#3C3C3C"){
+lucify_basics <- function(text_family = "Century Gothic", text_size = 15, text_color = "#3C3C3C"){
 
   ggplot2::theme(line = ggplot2::element_line(colour = "#666666"),
                  rect = ggplot2::element_rect(colour = "#C6C6C6"),
