@@ -42,6 +42,6 @@ lucify_basics <- function(text_family = "Century Gothic", text_size = 17, text_c
                                                        margin = ggplot2::margin(t = -12.5, b = 20)),
                  plot.margin = ggplot2::margin(t = 10, r = 10, b = 10, l = 10),
                  strip.text = ggplot2::element_text(size = ggplot2::rel(1.1),
-                                                    imargin = ggplot2::margin(t = 8, r = 8, b = 8, l = 8)))
+                                                    margin = ggplot2::margin(t = 8, r = 8, b = 8, l = 8)))
 
 }
