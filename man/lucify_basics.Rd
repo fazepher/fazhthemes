@@ -33,7 +33,7 @@ UKDriverDeaths_tibble <- UKDriverDeaths \%>\%
 
 ggplot(data = ULDriverDeaths_tibble, aes(x=Month,y=Jan)) +
   geom_col(fill = "steelblue4", width = 0.1) +
-  geom_point(color = "steelblue4", size = rel(10)) +
+  geom_point(color = "steelblue4", size = ggplot2::rel(10)) +
   theme_minimal() +
   lucify_basics()
 }
