@@ -15,3 +15,11 @@ NULL
 
 #' @import ggplot2
 NULL
+
+#### Generales ####
+
+naranja_nk <- "#E84E0E"
+gris_nk <- "#3C3C3C"
+gris_nk_escala <- "#666666"
+gris_nk_claro <- "#C6C6C6"
+

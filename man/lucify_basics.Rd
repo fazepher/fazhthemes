@@ -2,9 +2,37 @@
 % Please edit documentation in R/lucify_themes.R
 \name{lucify_basics}
 \alias{lucify_basics}
+\alias{lucify_theme_gray}
+\alias{lucify_theme_bw}
+\alias{lucify_theme_linedraw}
+\alias{lucify_theme_light}
+\alias{lucify_theme_dark}
+\alias{lucify_theme_minimal}
+\alias{lucify_theme_classic}
+\alias{lucify_theme_void}
 \title{Lucified ggplot2 themes}
 \usage{
 lucify_basics(
+  text_family = "Century Gothic",
+  text_size = 15,
+  text_color = "#3C3C3C"
+)
+
+lucify_theme_gray(...)
+
+lucify_theme_bw(...)
+
+lucify_theme_linedraw(...)
+
+lucify_theme_light(...)
+
+lucify_theme_dark(...)
+
+lucify_theme_minimal(...)
+
+lucify_theme_classic(...)
+
+lucify_theme_void(
   text_family = "Century Gothic",
   text_size = 15,
   text_color = "#3C3C3C"
@@ -16,10 +44,58 @@ lucify_basics(
 \item{text_size}{(Default = 17) Text size to use.}
 
 \item{text_color}{(Default = "#3C3C3C") Text color to use.}
+
+\item{...}{Arguments passed to \code{\link{lucify_basics}}}
 }
 \description{
 These functions "lucify" (inside joke for modifying) a core {ggplot2} theme,
 as described in (\code{\link[ggplot2]{ggtheme}}).
 The basics of lucified themes are Century Gothic fonts, bigger sizes of text elements and margins,
 as well as slightly different colors and centered title and subtitles.
+}
+\details{
+There are 3 customizable parameters to pass to all lucified themes. Probably, the most used
+would be the font family, as not everyone could like or have available Century Gothic.
+}
+\section{Functions}{
+\itemize{
+\item \code{lucify_theme_gray}: 
+
+\item \code{lucify_theme_bw}: 
+
+\item \code{lucify_theme_linedraw}: 
+
+\item \code{lucify_theme_light}: 
+
+\item \code{lucify_theme_dark}: 
+
+\item \code{lucify_theme_minimal}: 
+
+\item \code{lucify_theme_classic}: 
+
+\item \code{lucify_theme_void}: 
+}}
+
+\examples{
+
+\dontrun{
+
+UKDriverDeaths_tibble <- UKDriverDeaths \%>\%
+   matrix(nrow=16, ncol=12, byrow = TRUE,
+          dimnames = list(1969:1984,month.abb)) \%>\%
+   as.data.frame() \%>\%
+   rownames_to_column("Year")
+
+ggplot(data = UKDriverDeaths_tibble, aes(x=Year,y=Jan)) +
+  geom_col(fill = "steelblue4", width = 0.1) +
+  geom_point(color = "steelblue4", size = rel(10)) +
+  theme_minimal()
+
+ggplot(data = UKDriverDeaths_tibble, aes(x=Year,y=Jan)) +
+  geom_col(fill = "steelblue4", width = 0.1) +
+  geom_point(color = "steelblue4", size = rel(10)) +
+  lucify_theme_minimal()
+
+}
+
 }
