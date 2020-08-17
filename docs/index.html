@@ -68,9 +68,106 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-This package contains my personal {ggplot2} themes. 
-    Their main difference with the core themes is the use of the Century Gothic family, 
-    as well as larger font sizes. 
+<div id="fazhthemes" class="section level1">
+<div class="page-header"><h1 class="hasAnchor">
+<a href="#fazhthemes" class="anchor"></a>fazhthemes</h1></div>
+<!-- badges: start -->
+<!-- badges: end -->
+<p>The goal of fazhthemes is to contain my personal {ggplot2} themes.</p>
+<div id="installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h2>
+<p>You can install the development version of {fazhthemes} from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="co"># install.packages("devtools")</span>
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"fazepher/fazhthemes"</span>)
+</pre></div>
+</div>
+<div id="example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#example" class="anchor"></a>Example</h2>
+<p>Let’s begin with some data already available in R.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/fazepher/fazhthemes">fazhthemes</a></span>)
+<span class="co">#&gt; Loading required package: ggplot2</span>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span>)
+<span class="co">#&gt; ── Attaching packages ─────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</span>
+<span class="co">#&gt; ✓ tibble  3.0.3     ✓ dplyr   1.0.0</span>
+<span class="co">#&gt; ✓ tidyr   1.1.0     ✓ stringr 1.4.0</span>
+<span class="co">#&gt; ✓ readr   1.3.1     ✓ forcats 0.5.0</span>
+<span class="co">#&gt; ✓ purrr   0.3.4</span>
+<span class="co">#&gt; Warning: package 'tibble' was built under R version 4.0.2</span>
+<span class="co">#&gt; ── Conflicts ────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──</span>
+<span class="co">#&gt; x dplyr::filter() masks stats::filter()</span>
+<span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span>
+
+<span class="kw">UKDriverDeaths_tibble</span> <span class="op">&lt;-</span> <span class="kw">UKDriverDeaths</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>(nrow=<span class="fl">16</span>, ncol=<span class="fl">12</span>, byrow = <span class="fl">TRUE</span>,
+         dimnames = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="fl">1969</span><span class="op">:</span><span class="fl">1984</span>,<span class="kw">month.abb</span>)) <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span>() <span class="op">%&gt;%</span>
+  <span class="fu">rownames_to_column</span>(<span class="st">"Year"</span>) <span class="op">%&gt;%</span> 
+  <span class="fu">pivot_longer</span>(<span class="op">-</span><span class="kw">Year</span>,names_to = <span class="st">"Month"</span>, values_to = <span class="st">"Deaths"</span>) <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span>(Month = <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(<span class="kw">Month</span>,levels = <span class="kw">month.abb</span>,ordered = <span class="fl">TRUE</span>))
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">UKDriverDeaths_tibble</span>)
+<span class="co">#&gt; # A tibble: 6 x 3</span>
+<span class="co">#&gt;   Year  Month Deaths</span>
+<span class="co">#&gt;   &lt;chr&gt; &lt;ord&gt;  &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 1969  Jan     1687</span>
+<span class="co">#&gt; 2 1969  Feb     1508</span>
+<span class="co">#&gt; 3 1969  Mar     1507</span>
+<span class="co">#&gt; 4 1969  Apr     1385</span>
+<span class="co">#&gt; 5 1969  May     1632</span>
+<span class="co">#&gt; 6 1969  Jun     1511</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span>(<span class="kw">UKDriverDeaths_tibble</span>)
+<span class="co">#&gt; # A tibble: 6 x 3</span>
+<span class="co">#&gt;   Year  Month Deaths</span>
+<span class="co">#&gt;   &lt;chr&gt; &lt;ord&gt;  &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 1984  Jul     1222</span>
+<span class="co">#&gt; 2 1984  Aug     1284</span>
+<span class="co">#&gt; 3 1984  Sep     1444</span>
+<span class="co">#&gt; 4 1984  Oct     1575</span>
+<span class="co">#&gt; 5 1984  Nov     1737</span>
+<span class="co">#&gt; 6 1984  Dec     1763</span>
+</pre></div>
+<p>We can explore the monthly driver deaths in the UK for each year in our dataset. From the core themes, I’ve always prefered minimal, so let’s see it. It looks good.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="kw">uk_dd_plot</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span>(data = <span class="kw">UKDriverDeaths_tibble</span>, <span class="fu">aes</span>(x=<span class="kw">Month</span>,y=<span class="kw">Deaths</span>,group=<span class="kw">Year</span>)) <span class="op">+</span>
+  <span class="fu">geom_line</span>(color = <span class="st">"steelblue4"</span>) <span class="op">+</span>
+  <span class="fu">geom_point</span>(color = <span class="st">"steelblue4"</span>) <span class="op">+</span>
+  <span class="fu">labs</span>(title = <span class="st">"UK Driver Deaths by month"</span>, 
+       subtitle = <span class="st">"Each line represents a year from 1969 to 1984"</span>, 
+       caption = <span class="st">"Source: @fazepher with {ggplot2} and the UKDriverDeaths dataset from R."</span>) 
+
+<span class="kw">uk_dd_plot</span> <span class="op">+</span> 
+  <span class="fu">theme_minimal</span>()
+</pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"> However, I’m not a fan of several things. First, at work, we mostly use gray texts in our presentations instead of the default black in the plot. Secondly, we never liked the title and subtitles on the left. Thirdly, our corporate prefered font is more similar to the Century Gothic family. So I frequently ended up changing {ggplot2}’s defaults. Furthermore, when working on reports for clients, my coworker Lucía always noted that the axis texts and titles were too small on the actual reports. As she constantly needed to adjust them, and we knew her changes would almost surely result in better plots, it soon became an inside joke: now, let’s <em>lucify</em> the plot. We worked together in order to come up with some other defaults that we felt were appropriate for those needs (and our aesthetic tastes). The result were the <em>lucified</em> core themes. How do they look? Let’s lucify our previous plot!</p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">uk_dd_plot</span> <span class="op">+</span> 
+  <span class="fu"><a href="reference/lucify_basics.html">lucify_theme_minimal</a></span>() 
+</pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
+<p>Obviously, like I said, these themes are tailored to our own specific aesthetics. You may not like to change the default family font or want to use your own prefered family (you could also have an error when trying to use Century Gothic, probably because in order to change families in plots, one has to first use the {extrafont} package). You can always change the family with another call, for example adding theme(text = element_text(family = “serif”)), but the lucify theme functions allow you to specify it directly with the text_family argument.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="kw">uk_dd_plot</span> <span class="op">+</span> 
+  <span class="fu"><a href="reference/lucify_basics.html">lucify_theme_minimal</a></span>(text_family = <span class="st">"serif"</span>) 
+</pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
+<p>Likewise, if you feel we have chosen too big text sizes you can scale back with the text_size argument.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="kw">uk_dd_plot</span> <span class="op">+</span> 
+  <span class="fu"><a href="reference/lucify_basics.html">lucify_theme_minimal</a></span>(text_size = <span class="fl">12</span>) 
+</pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-6-1.png" width="100%"></p>
+<p>Lastly, there is a text_color argument. This feature is still in development, in terms of its interaction with the different themes. Currently, for the lucified minimal theme it doesn´t change the axis text color, for example.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="kw">uk_dd_plot</span> <span class="op">+</span> 
+  <span class="fu"><a href="reference/lucify_basics.html">lucify_theme_minimal</a></span>(text_color = <span class="st">"sienna3"</span>) 
+</pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="100%"></p>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
